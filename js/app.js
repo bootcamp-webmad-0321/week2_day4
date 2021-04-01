@@ -185,6 +185,7 @@ const animationApp = {
     ctx: undefined,
     canvasSize: { w: undefined, h: undefined },
     camels: [],
+    frames: 0,
     init() {
         this.canvasDOM = document.querySelector('#myCanvas')
         this.ctx = this.canvasDOM.getContext('2d')
@@ -222,6 +223,8 @@ const animationApp = {
     },
     drawAll() {
         setInterval(() => {
+            this.frames++
+            this.frames % 50 === 0 ? console.log('SACA UN OBSTÁCULO AHORA') : null
             this.clearAll()
             this.createLines()
             this.camels.forEach(elm => elm.draw())
